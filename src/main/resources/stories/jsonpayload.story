@@ -5,7 +5,7 @@ So that github's response json should include the same username and his id
 
 Scenario: testing JSON payload
 Given github profile
-When I searche for a user as <user>
+When I search for a user as <user>
 Then I should get the response with the same username <username>
 And the id <id> of the user
 

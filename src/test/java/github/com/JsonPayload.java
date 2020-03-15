@@ -2,9 +2,10 @@ package github.com;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.entity.ContentType;
-import org.jbehave.core.annotations.*;
-
+import org.jbehave.core.annotations.Given;
+import org.jbehave.core.annotations.Named;
+import org.jbehave.core.annotations.When;
+import org.jbehave.core.annotations.Then;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,9 +13,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import static github.com.Statuscode.getGithubUserProfile;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class JsonPayload {
+
     private String api;
     HttpResponse response;
     private String result;
@@ -24,10 +26,9 @@ public class JsonPayload {
         api = "https://api.github.com/users/%s";
     }
 
-    @When("I searche for a user as <user>")
+    @When("I search for a user as <user>")
     public void whenISearcheForAUserAsuser(@Named("user") String user) throws IOException {
-        this.response = getGithubUserProfile(api, user);
-
+        this.response = getGithubUserProfile("https://api.github.com/users/%s", user);
     }
 
     @Then("I should get the response with the same username <username>")
