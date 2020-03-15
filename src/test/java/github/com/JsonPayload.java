@@ -21,14 +21,14 @@ public class JsonPayload {
     HttpResponse response;
     private String result;
 
-    @Given("github profile")
+    @Given("github profile from user")
     public void givenGithubProfile() {
-        api = "https://api.github.com/users/%s";
+        this.api = "https://api.github.com/users/%s";
     }
 
     @When("I search for a user as <user>")
     public void whenISearcheForAUserAsuser(@Named("user") String user) throws IOException {
-        this.response = getGithubUserProfile("https://api.github.com/users/%s", user);
+        this.response = getGithubUserProfile(api, user);
     }
 
     @Then("I should get the response with the same username <username>")
