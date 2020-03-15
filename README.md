@@ -44,3 +44,9 @@ Just play the *"serenity use file"* or run:
 ```
 $ mvn clean install                                          
 ```
+
+## Jenkins command
+Use this to fix HTML report on jenkins, this command needs to be executed on console scripts.
+```
+System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "")
+```
